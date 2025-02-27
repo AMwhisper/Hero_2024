@@ -473,6 +473,7 @@ void Task_UI(void *Parameters) {
     int        intervalms    = interval * 1000;
     uint8_t    isInitialized = 0;
 
+    client_custom_graphic_single_t clientCustomGraphicSingle;
     while (1) {
 				if (keyboardData.Ctrl) {
 					    Bridge_Send_Protocol_Once(&Node_Judge, 0xF301);
@@ -480,14 +481,14 @@ void Task_UI(void *Parameters) {
 				}
 				
         if (!isInitialized) {
-            UI_1_Protocol_Updata(&interactionFigure_1_0, &ProtocolData.robotInteractiveData);
-            interactionFigure_1_0.interaction_figure[0].operate_tpye = 2;
-            isInitialized                                            = 1;
+            UI_1_Protocol_Updata(&clientCustomGraphicSingle, &ProtocolData.robotInteractiveData);
+            clientCustomGraphicSingle.grapic_data_struct[0].operate_tpye = 2;
+            isInitialized                                                = 1;
         } else {
-            interactionFigure_1_0.interaction_figure[0].details_c = targetSpeed >> 22;
-            interactionFigure_1_0.interaction_figure[0].details_d = (targetSpeed >> 11) & 0x7FF;
-            interactionFigure_1_0.interaction_figure[0].details_d = targetSpeed & 0x3FF;
-            UI_1_Protocol_Updata(&interactionFigure_1_0, &ProtocolData.robotInteractiveData);
+            clientCustomGraphicSingle.grapic_data_struct[0].details_c = targetSpeed >> 22;
+            clientCustomGraphicSingle.grapic_data_struct[0].details_d = (targetSpeed >> 11) & 0x7FF;
+            clientCustomGraphicSingle.grapic_data_struct[0].details_d = targetSpeed & 0x3FF;
+            UI_1_Protocol_Updata(&clientCustomGraphicSingle, &ProtocolData.robotInteractiveData);
         }
         vTaskDelayUntil(&LastWakeTime, intervalms);
     }

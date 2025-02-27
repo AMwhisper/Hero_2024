@@ -1,17 +1,19 @@
 #include "Driver_UI.h"
 #include "handle.h"
+#include "protocol.h"
 
-void UI_1_Protocol_Updata(interaction_figure_1_t *interactionFigure_1, robot_interactive_data_t *robotInteractiveData) {
-    robotInteractiveData->data_cmd_id = 0xF101;
+void UI_1_Protocol_Updata(client_custom_graphic_single_t *clientCustomGraphicSingle, robot_interactive_data_t *robotInteractiveData) {
+    robotInteractiveData->data_cmd_id = 0xF301;
     robotInteractiveData->send_id     = ProtocolData.gameRobotstatus.robot_id;
     robotInteractiveData->receiver_id = 0x100 + ProtocolData.gameRobotstatus.robot_id;
-    for (int i = 6; i < sizeof(robotInteractiveData->data); i++) {
-        robotInteractiveData->data[i] = interactionFigure_1->data[i];
-    }
+    clientCustomGraphicSingle->sub_id = 0xF101;
+    // for (int i = 6; i < sizeof(robotInteractiveData->data); i++) {
+    //     robotInteractiveData->data[i] = interactionFigure_1->data[i];
+    // }
 }
 
 void UI_2_Protocol_Updata(interaction_figure_2_t *interactionFigure_2, robot_interactive_data_t *robotInteractiveData) {
-    robotInteractiveData->data_cmd_id = 0xF102;
+    robotInteractiveData->data_cmd_id = 0xF301;
     robotInteractiveData->send_id     = ProtocolData.gameRobotstatus.robot_id;
     robotInteractiveData->receiver_id = 0x100 + ProtocolData.gameRobotstatus.robot_id;
     for (int i = 6; i < sizeof(robotInteractiveData->data); i++) {
@@ -20,7 +22,7 @@ void UI_2_Protocol_Updata(interaction_figure_2_t *interactionFigure_2, robot_int
 }
 
 void UI_5_Protocol_Updata(interaction_figure_5_t *interactionFigure_5, robot_interactive_data_t *robotInteractiveData) {
-    robotInteractiveData->data_cmd_id = 0xF103;
+    robotInteractiveData->data_cmd_id = 0xF301;
     robotInteractiveData->send_id     = ProtocolData.gameRobotstatus.robot_id;
     robotInteractiveData->receiver_id = 0x100 + ProtocolData.gameRobotstatus.robot_id;
     for (int i = 6; i < sizeof(robotInteractiveData->data); i++) {
@@ -29,7 +31,7 @@ void UI_5_Protocol_Updata(interaction_figure_5_t *interactionFigure_5, robot_int
 }
 
 void UI_7_Protocol_Updata(interaction_figure_7_t *interactionFigure_7, robot_interactive_data_t *robotInteractiveData) {
-    robotInteractiveData->data_cmd_id = 0xF104;
+    robotInteractiveData->data_cmd_id = 0xF301;
     robotInteractiveData->send_id     = ProtocolData.gameRobotstatus.robot_id;
     robotInteractiveData->receiver_id = 0x100 + ProtocolData.gameRobotstatus.robot_id;
     for (int i = 6; i < sizeof(robotInteractiveData->data); i++) {
@@ -38,7 +40,7 @@ void UI_7_Protocol_Updata(interaction_figure_7_t *interactionFigure_7, robot_int
 }
 
 void UI_Char_Protocol_Updata(ext_client_custom_character_t *extClientCustomChar, robot_interactive_data_t *robotInteractiveData) {
-    robotInteractiveData->data_cmd_id = 0xF110;
+    robotInteractiveData->data_cmd_id = 0xF301;
     robotInteractiveData->send_id     = ProtocolData.gameRobotstatus.robot_id;
     robotInteractiveData->receiver_id = 0x100 + ProtocolData.gameRobotstatus.robot_id;
     for (int i = 6; i < sizeof(robotInteractiveData->data); i++) {

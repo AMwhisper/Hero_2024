@@ -1,11 +1,11 @@
 .\objects\usart.o: ..\library\atom\usart\usart.c
 .\objects\usart.o: ..\library\atom\usart\usart.h
-.\objects\usart.o: D:\Keilv5\Keilv5_core\ARM\Compiler_5.06u7\Bin\..\include\stdio.h
+.\objects\usart.o: G:\Keil5\core\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\usart.o: ..\user\common\stm32f4xx_conf.h
 .\objects\usart.o: ..\library\std\inc\stm32f4xx_adc.h
 .\objects\usart.o: ..\user\common\stm32f4xx.h
 .\objects\usart.o: ..\core\core_cm4.h
-.\objects\usart.o: D:\Keilv5\Keilv5_core\ARM\Compiler_5.06u7\Bin\..\include\stdint.h
+.\objects\usart.o: G:\Keil5\core\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\usart.o: ..\core\core_cmInstr.h
 .\objects\usart.o: ..\core\core_cmFunc.h
 .\objects\usart.o: ..\core\core_cm4_simd.h
@@ -38,6 +38,6 @@
 .\objects\usart.o: ..\library\std\inc\stm32f4xx_dma2d.h
 .\objects\usart.o: ..\library\std\inc\stm32f4xx_fmc.h
 .\objects\usart.o: ..\library\std\inc\stm32f4xx_sai.h
-.\objects\usart.o: D:\Keilv5\Keilv5_core\ARM\Compiler_5.06u7\Bin\..\include\string.h
+.\objects\usart.o: G:\Keil5\core\ARM\ARMCC\Bin\..\include\string.h
 .\objects\usart.o: ..\library\atom\sys\sys.h
-.\objects\usart.o: D:\Keilv5\Keilv5_core\ARM\Compiler_5.06u7\Bin\..\include\math.h
+.\objects\usart.o: G:\Keil5\core\ARM\ARMCC\Bin\..\include\math.h

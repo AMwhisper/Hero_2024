@@ -22,19 +22,19 @@
  **********************************************************************/
 
 typedef struct {
-    uint8_t  graphic_name[3];
-    uint32_t operate_tpye : 3;
-    uint32_t graphic_tpye : 3;
-    uint32_t layer : 4;
-    uint32_t color : 4;
-    uint32_t start_angle : 9;
-    uint32_t end_angle : 9;
-    uint32_t width : 10;
-    uint32_t start_x : 11;
-    uint32_t start_y : 11;
-    uint32_t radius : 10;
-    uint32_t end_x : 11;
-    uint32_t end_y : 11;
+    uint8_t figure_name[3]; 
+    uint32_t operate_tpye:3; 
+    uint32_t figure_tpye:3; 
+    uint32_t layer:4; 
+    uint32_t color:4; 
+    uint32_t details_a:9; 
+    uint32_t details_b:9; 
+    uint32_t width:10; 
+    uint32_t start_x:11; 
+    uint32_t start_y:11; 
+    uint32_t details_c:10; 
+    uint32_t details_d:11; 
+    uint32_t details_e:11;
 } GraphicData_Type;
 
 typedef struct {
@@ -322,6 +322,7 @@ typedef union {
 
 typedef union {
     struct {
+        uint8_t sub_id;
         uint8_t robot_comm;
     };
     struct {
@@ -331,6 +332,7 @@ typedef union {
 
 typedef union {
     struct {
+        uint8_t sub_id;
         uint8_t  operate_tpye;
         uint8_t  layer;
     };
@@ -341,7 +343,8 @@ typedef union {
 
 typedef union {
     struct {
-        GraphicData_Type grapic_data_struct;
+        uint8_t sub_id;
+        GraphicData_Type grapic_data_struct[1];
     };
     struct {
         uint8_t data[15];
@@ -350,6 +353,7 @@ typedef union {
 
 typedef union {
     struct {
+        uint8_t sub_id;
         GraphicData_Type grapic_data_struct[2];
     };
     struct {
@@ -359,6 +363,7 @@ typedef union {
 
 typedef union {
     struct {
+        uint8_t sub_id;
         GraphicData_Type grapic_data_struct[5];
     };
     struct {
@@ -368,6 +373,7 @@ typedef union {
 
 typedef union {
     struct {
+        uint8_t sub_id;
         GraphicData_Type grapic_data_struct[7];
     };
     struct {
@@ -377,6 +383,7 @@ typedef union {
 
 typedef union {
     struct {
+        uint8_t sub_id;
         GraphicData_Type grapic_data_struct;
     };
     struct {
@@ -386,6 +393,7 @@ typedef union {
 
 typedef union {
     struct {
+        uint8_t sub_id;
         uint8_t sentry_self_cmd;
     };
     struct {
@@ -395,6 +403,7 @@ typedef union {
 
 typedef union {
     struct {
+        uint8_t sub_id;
         uint8_t radar_self_cmd;
     };
     struct {

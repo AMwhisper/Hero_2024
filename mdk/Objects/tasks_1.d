@@ -7,7 +7,7 @@
 .\objects\tasks_1.o: ..\library\atom\sys\sys.h
 .\objects\tasks_1.o: ..\user\common\stm32f4xx.h
 .\objects\tasks_1.o: ..\core\core_cm4.h
-.\objects\tasks_1.o: D:\Keilv5\Keilv5_core\ARM\Compiler_5.06u7\Bin\..\include\stdint.h
+.\objects\tasks_1.o: G:\Keil5\core\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\tasks_1.o: ..\core\core_cmInstr.h
 .\objects\tasks_1.o: ..\core\core_cmFunc.h
 .\objects\tasks_1.o: ..\core\core_cm4_simd.h
@@ -49,7 +49,7 @@
 .\objects\tasks_1.o: ..\user\infantry\config.h
 .\objects\tasks_1.o: ..\user\common\default_config.h
 .\objects\tasks_1.o: ..\library\freertos\include\FreeRTOS.h
-.\objects\tasks_1.o: D:\Keilv5\Keilv5_core\ARM\Compiler_5.06u7\Bin\..\include\stddef.h
+.\objects\tasks_1.o: G:\Keil5\core\ARM\ARMCC\Bin\..\include\stddef.h
 .\objects\tasks_1.o: ..\library\freertos\include\FreeRTOSConfig.h
 .\objects\tasks_1.o: ..\library\freertos\include\projdefs.h
 .\objects\tasks_1.o: ..\library\freertos\include\portable.h

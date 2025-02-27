@@ -41,6 +41,7 @@ typedef struct {
 
 typedef union {
     struct {
+        uint8_t sub_id;
         interaction_figure_t interaction_figure[1];
     };
     struct {
@@ -50,6 +51,7 @@ typedef union {
 
 typedef union {
     struct {
+        uint8_t sub_id;
         interaction_figure_t interaction_figure[2];
     };
     struct {
@@ -59,6 +61,7 @@ typedef union {
 
 typedef union {
     struct {
+        uint8_t sub_id;
         interaction_figure_t interaction_figure[5];
     };
     struct {
@@ -68,6 +71,7 @@ typedef union {
 
 typedef union {
     struct {
+        uint8_t sub_id;
         interaction_figure_t interaction_figure[7];
     };
     struct {
@@ -77,6 +81,7 @@ typedef union {
 
 typedef union {
     struct {
+        uint8_t sub_id;
         interaction_figure_t interaction_figure;
         uint8_t              data[30];
     };
@@ -262,7 +267,8 @@ typedef union {
  * @brief functions
  */
 void UI_Init();
-void UI_1_Protocol_Updata(interaction_figure_1_t *interactionFigure_1, robot_interactive_data_t *robotInteractiveData);
+void UI_1_Protocol_Updata(client_custom_graphic_single_t *clientCustomGraphicSingle, robot_interactive_data_t *robotInteractiveData);
+// void UI_1_Protocol_Updata(interaction_figure_1_t *interactionFigure_1, robot_interactive_data_t *robotInteractiveData);
 void UI_2_Protocol_Updata(interaction_figure_2_t *interactionFigure_2, robot_interactive_data_t *robotInteractiveData);
 void UI_5_Protocol_Updata(interaction_figure_5_t *interactionFigure_5, robot_interactive_data_t *robotInteractiveData);
 void UI_7_Protocol_Updata(interaction_figure_7_t *interactionFigure_7, robot_interactive_data_t *robotInteractiveData);

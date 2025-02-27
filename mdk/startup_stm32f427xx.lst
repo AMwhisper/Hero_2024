@@ -907,16 +907,15 @@ ARM Macro Assembler    Page 14
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp.sp --apcs=
 interwork --depend=.\objects\startup_stm32f427xx.d -o.\objects\startup_stm32f42
-7xx.o -ID:\Keilv5\Keilv5_pack\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST
+7xx.o -IG:\Keil5\pack\Keil\STM32F4xx_DFP\3.0.0\Device\Include --predefine="__UV
 
 
 
 ARM Macro Assembler    Page 15 
 
 
-\STM32F4xx\Include -ID:\Keilv5\Keilv5_pack\Keil\STM32F4xx_DFP\2.17.1\Device\Inc
-lude --predefine="__UVISION_VERSION SETA 539" --predefine="STM32F427xx SETA 1" 
---list=.\startup_stm32f427xx.lst ..\core\startup_stm32f427xx.s
+ISION_VERSION SETA 539" --predefine="STM32F427xx SETA 1" --list=.\startup_stm32
+f427xx.lst ..\core\startup_stm32f427xx.s
 
 
 
