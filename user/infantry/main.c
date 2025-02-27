@@ -118,7 +118,7 @@ int main(void) {
     Bridge_Send_Protocol(&Node_Host, 0x120, 1);    // 心跳包 no need
     Bridge_Send_Protocol(&Node_Host, 0x403, 20);   // 陀螺仪
     Bridge_Send_Protocol(&Node_Host, 0x404, 10);   // 遥控器
-    Bridge_Send_Protocol(&Node_Judge, 0XF101, 10); // 此处创建UI循环发送任务
+    Bridge_Send_Protocol(&Node_Judge, 0XF301, 10); // 此处创建UI循环发送任务
 
     // 创建UI更新打包任务
     xTaskCreate(Task_UI, "Task_UI", 500, NULL, 6, NULL);

@@ -262,10 +262,10 @@ typedef union {
  * @brief functions
  */
 void UI_Init();
-void UI_1_Protocol_Updata(interaction_figure_1_t *interactionFigure_1, client_custom_graphic_single_t *clientCustomGraphicSingle);
-void UI_2_Protocol_Updata(interaction_figure_2_t *interactionFigure_2, client_custom_graphic_double_t *clientCustomGraphicDouble);
-void UI_5_Protocol_Updata(interaction_figure_5_t *interactionFigure_5, client_custom_graphic_five_t *clientCustomGraphicFive);
-void UI_7_Protocol_Updata(interaction_figure_7_t *interactionFigure_7, client_custom_graphic_seven_t *clientCustomGraphicSeven);
-void UI_Char_Protocol_Updata(ext_client_custom_character_t *extClientCustomChar, client_custom_character_t *clientCustomChar);
+void UI_1_Protocol_Updata(interaction_figure_1_t *interactionFigure_1, robot_interactive_data_t *robotInteractiveData);
+void UI_2_Protocol_Updata(interaction_figure_2_t *interactionFigure_2, robot_interactive_data_t *robotInteractiveData);
+void UI_5_Protocol_Updata(interaction_figure_5_t *interactionFigure_5, robot_interactive_data_t *robotInteractiveData);
+void UI_7_Protocol_Updata(interaction_figure_7_t *interactionFigure_7, robot_interactive_data_t *robotInteractiveData);
+void UI_Char_Protocol_Updata(ext_client_custom_character_t *extClientCustomChar, robot_interactive_data_t *robotInteractiveData);
 
 #endif

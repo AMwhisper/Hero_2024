@@ -1,0 +1,390 @@
+{
+  "name": "infantry",
+  "type": "ARM",
+  "dependenceList": [],
+  "srcDirs": [],
+  "virtualFolder": {
+    "name": "<virtual_root>",
+    "files": [],
+    "folders": [
+      {
+        "name": "core",
+        "files": [
+          {
+            "path": "../core/startup_stm32f427xx.s"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "library",
+        "files": [
+          {
+            "path": "../library/std/src/misc.c"
+          },
+          {
+            "path": "../library/std/src/stm32f4xx_adc.c"
+          },
+          {
+            "path": "../library/std/src/stm32f4xx_can.c"
+          },
+          {
+            "path": "../library/std/src/stm32f4xx_dma.c"
+          },
+          {
+            "path": "../library/std/src/stm32f4xx_dma2d.c"
+          },
+          {
+            "path": "../library/std/src/stm32f4xx_exti.c"
+          },
+          {
+            "path": "../library/std/src/stm32f4xx_flash.c"
+          },
+          {
+            "path": "../library/std/src/stm32f4xx_gpio.c"
+          },
+          {
+            "path": "../library/std/src/stm32f4xx_rcc.c"
+          },
+          {
+            "path": "../library/std/src/stm32f4xx_syscfg.c"
+          },
+          {
+            "path": "../library/std/src/stm32f4xx_tim.c"
+          },
+          {
+            "path": "../library/std/src/stm32f4xx_usart.c"
+          },
+          {
+            "path": "../library/std/src/stm32f4xx_wwdg.c"
+          },
+          {
+            "path": "../library/std/src/stm32f4xx_spi.c"
+          },
+          {
+            "path": "../library/freertos/croutine.c"
+          },
+          {
+            "path": "../library/freertos/event_groups.c"
+          },
+          {
+            "path": "../library/freertos/list.c"
+          },
+          {
+            "path": "../library/freertos/queue.c"
+          },
+          {
+            "path": "../library/freertos/tasks.c"
+          },
+          {
+            "path": "../library/freertos/timers.c"
+          },
+          {
+            "path": "../library/freertos/portable/MemMang/heap_4.c"
+          },
+          {
+            "path": "../library/freertos/portable/RVDS/ARM_CM4F/port.c"
+          },
+          {
+            "path": "../library/atom/delay/delay.c"
+          },
+          {
+            "path": "../library/atom/sys/sys.c"
+          },
+          {
+            "path": "../library/mpu6500/MadgwickAHRS.c"
+          },
+          {
+            "path": "../library/mpu6500/mpu6500_driver.c"
+          },
+          {
+            "path": "../library/mpu6500/mpu6500_i2c.c"
+          },
+          {
+            "path": "../library/atom/debug/beep.c"
+          },
+          {
+            "path": "../library/atom/debug/key.c"
+          },
+          {
+            "path": "../library/atom/debug/led.c"
+          },
+          {
+            "path": "../library/vegmath/vegmath.c"
+          },
+          {
+            "path": "../library/atom/usart/usart.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "driver",
+        "files": [
+          {
+            "path": "../driver/src/Driver_CAN.c"
+          },
+          {
+            "path": "../driver/src/Driver_DBUS.c"
+          },
+          {
+            "path": "../driver/src/Driver_PID.c"
+          },
+          {
+            "path": "../driver/src/Driver_Magic.c"
+          },
+          {
+            "path": "../driver/src/Driver_Chassis.c"
+          },
+          {
+            "path": "../driver/src/Driver_Motor.c"
+          },
+          {
+            "path": "../driver/src/Driver_Filter.c"
+          },
+          {
+            "path": "../driver/src/Driver_Gyroscope.c"
+          },
+          {
+            "path": "../driver/src/Driver_BSP.c"
+          },
+          {
+            "path": "../driver/src/Driver_Protocol.c"
+          },
+          {
+            "path": "../driver/src/Driver_Fsm.c"
+          },
+          {
+            "path": "../driver/src/Driver_Bridge.c"
+          },
+          {
+            "path": "../driver/src/Driver_UI.c"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "user_common",
+        "files": [
+          {
+            "path": "../user/common/macro.h"
+          },
+          {
+            "path": "../user/common/system_stm32f4xx.c"
+          },
+          {
+            "path": "../user/common/interrupt.h"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "user_loop_infantry",
+        "files": [
+          {
+            "path": "../user/infantry/interrupt.c"
+          },
+          {
+            "path": "../user/infantry/main.c"
+          },
+          {
+            "path": "../user/infantry/tasks.c"
+          }
+        ],
+        "folders": []
+      }
+    ]
+  },
+  "outDir": "build",
+  "deviceName": null,
+  "packDir": null,
+  "miscInfo": {
+    "uid": "f4c9a55f94036d6a45119fe279efa5e8"
+  },
+  "targets": {
+    "Target 1": {
+      "excludeList": [],
+      "toolchain": "AC5",
+      "compileConfig": {
+        "cpuType": "Cortex-M4",
+        "floatingPointHardware": "single",
+        "scatterFilePath": "",
+        "useCustomScatterFile": false,
+        "storageLayout": {
+          "RAM": [
+            {
+              "tag": "RAM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            },
+            {
+              "tag": "RAM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            },
+            {
+              "tag": "RAM",
+              "id": 3,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            },
+            {
+              "tag": "IRAM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x20000000",
+                "size": "0x30000"
+              },
+              "isChecked": true,
+              "noInit": false
+            },
+            {
+              "tag": "IRAM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x10000000",
+                "size": "0x10000"
+              },
+              "isChecked": false,
+              "noInit": false
+            }
+          ],
+          "ROM": [
+            {
+              "tag": "ROM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            },
+            {
+              "tag": "ROM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            },
+            {
+              "tag": "ROM",
+              "id": 3,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            },
+            {
+              "tag": "IROM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x8000000",
+                "size": "0x200000"
+              },
+              "isChecked": true,
+              "isStartup": true
+            },
+            {
+              "tag": "IROM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            }
+          ]
+        },
+        "options": "null"
+      },
+      "uploader": "JLink",
+      "uploadConfig": {
+        "bin": "",
+        "baseAddr": "",
+        "cpuInfo": {
+          "vendor": "null",
+          "cpuName": "null"
+        },
+        "proType": 1,
+        "speed": 8000,
+        "otherCmds": ""
+      },
+      "uploadConfigMap": {},
+      "custom_dep": {
+        "name": "default",
+        "incList": [
+          "../core",
+          "../bsp/inc",
+          "../driver/inc",
+          "../library/std/inc",
+          "../user",
+          "../library/freertos/include",
+          "../library/freertos/portable/RVDS/ARM_CM4F",
+          "../user/common",
+          "../library/atom/delay",
+          "../library/atom/sys",
+          "../library/atom/usart",
+          "../library/atom/debug",
+          "../library/mpu6500",
+          "../user/infantry",
+          "../library/vegmath",
+          "RTE/_Target 1"
+        ],
+        "libList": [],
+        "defineList": [
+          "STM32F427_437xx",
+          "USE_STDPERIPH_DRIVER",
+          "ROBOT_LOOP_ONE"
+        ]
+      },
+      "builderOptions": {
+        "AC5": {
+          "version": 4,
+          "beforeBuildTasks": [],
+          "afterBuildTasks": [],
+          "global": {
+            "use-microLIB": false,
+            "output-debug-info": "enable"
+          },
+          "c/cpp-compiler": {
+            "optimization": "level-0",
+            "one-elf-section-per-function": true,
+            "c99-mode": true,
+            "C_FLAGS": "--gnu",
+            "CXX_FLAGS": "--gnu",
+            "warnings": "no-warnings"
+          },
+          "asm-compiler": {},
+          "linker": {
+            "output-format": "elf",
+            "xo-base": "",
+            "ro-base": "0x08000000",
+            "rw-base": "0x20000000"
+          }
+        }
+      }
+    }
+  },
+  "version": "3.5"
+}

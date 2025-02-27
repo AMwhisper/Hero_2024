@@ -322,77 +322,105 @@ typedef union {
 
 typedef union {
     struct {
-        uint16_t data_cmd_id;
-        uint16_t send_id;
-        uint16_t receiver_id;
+        uint8_t robot_comm;
+    };
+    struct {
+        uint8_t data[112];
+    };
+} robot_comm_t;
+
+typedef union {
+    struct {
         uint8_t  operate_tpye;
         uint8_t  layer;
     };
     struct {
-        uint8_t data[8];
+        uint8_t data[6];
     };
 } client_custom_graphic_delete_t;
 
 typedef union {
     struct {
-        uint16_t         data_cmd_id;
-        uint16_t         send_id;
-        uint16_t         receiver_id;
         GraphicData_Type grapic_data_struct;
     };
     struct {
-        uint8_t data[21];
+        uint8_t data[15];
     };
 } client_custom_graphic_single_t;
 
 typedef union {
     struct {
-        uint16_t         data_cmd_id;
-        uint16_t         send_id;
-        uint16_t         receiver_id;
         GraphicData_Type grapic_data_struct[2];
     };
     struct {
-        uint8_t data[36];
+        uint8_t data[30];
     };
 } client_custom_graphic_double_t;
 
 typedef union {
     struct {
-        uint16_t         data_cmd_id;
-        uint16_t         send_id;
-        uint16_t         receiver_id;
         GraphicData_Type grapic_data_struct[5];
     };
     struct {
-        uint8_t data[81];
+        uint8_t data[75];
     };
 } client_custom_graphic_five_t;
 
 typedef union {
     struct {
-        uint16_t         data_cmd_id;
-        uint16_t         send_id;
-        uint16_t         receiver_id;
-        GraphicData_Type grapic_data_struct;
-        uint8_t          data[30];
+        GraphicData_Type grapic_data_struct[7];
     };
     struct {
-        uint8_t data[51];
+        uint8_t data[105];
+    };
+} client_custom_graphic_seven_t;
+
+typedef union {
+    struct {
+        GraphicData_Type grapic_data_struct;
+    };
+    struct {
+        uint8_t data[45];
     };
 } client_custom_character_t;
 
 typedef union {
     struct {
-        uint16_t         data_cmd_id;
-        uint16_t         send_id;
-        uint16_t         receiver_id;
-        GraphicData_Type grapic_data_struct[7];
+        uint8_t sentry_self_cmd;
     };
     struct {
-        uint8_t data[111];
+        uint8_t data[4];
     };
-} client_custom_graphic_seven_t;
+} sentry_self_cmd_t;
+
+typedef union {
+    struct {
+        uint8_t radar_self_cmd;
+    };
+    struct {
+        uint8_t data[1];
+    };
+} radar_self_cmd_t;
+
+typedef union {
+    struct {
+        uint16_t data_cmd_id;
+        uint16_t send_id;
+        uint16_t receiver_id;
+        robot_comm_t                   robotComm;
+        client_custom_graphic_delete_t clientCustomGraphicDelete;   
+        client_custom_graphic_single_t clientCustomGraphicSingle; 
+        client_custom_graphic_double_t clientCustomGraphicDouble;  
+        client_custom_graphic_five_t   clientCustomGraphicFive;     
+        client_custom_character_t      clientCustomCharacter;       
+        client_custom_graphic_seven_t  clientCustomGraphicSeven;
+        sentry_self_cmd_t              sentrySelfCmd;
+        radar_self_cmd_t               radarSelfCmd;
+    };
+    struct {
+        uint8_t data[112];
+    };
+} robot_interactive_data_t;
 
 typedef union {
     struct {
@@ -462,20 +490,6 @@ typedef union {
     };
 } dbus_data_t;
 
-typedef union {
-    struct {
-        uint16_t data_cmd_id;
-        uint16_t send_id;
-        uint16_t receiver_id;
-        int32_t  data1;
-        int32_t  data2;
-        int32_t  data3;
-        int32_t  data4;
-    };
-    struct {
-        uint8_t data[22];
-    };
-} robot_interactive_data_t;
 
 typedef union {
     struct {
@@ -517,11 +531,10 @@ typedef union {
     {                                                                                                                                                          \
         {0X0001, 11, 1}, {0X0002, 1, 1}, {0X0003, 32, 1}, {0X0101, 4, 1}, {0X0102, 4, 1}, {0X0104, 3, 1}, {0X0105, 3, 1}, {0X0201, 13, 1}, {0X0202, 16, 1},    \
             {0X0203, 16, 1}, {0X0204, 6, 1}, {0X0205, 2, 1}, {0X0206, 1, 1}, {0X0207, 7, 1}, {0X0208, 6, 1}, {0X0209, 4, 1}, {0X020A, 6, 1}, {0X020B, 40, 1},  \
-            {0X020C, 6, 1}, {0X020D, 4, 1}, {0X020E, 1, 1}, {0XF100, 8, 0}, {0XF101, 21, 0}, {0XF102, 36, 0}, {0XF103, 81, 0}, {0XF110, 51, 0},                \
-            {0XF104, 111, 0}, {0X1024, 32, 0}, {0X6666, 24, 0}, {0X0120, 0, 1}, {0X0401, 9, 1}, {0X0402, 12, 1}, {0X0403, 12, 0}, {0X0404, 18, 0},             \
-            {0XF301, 22, 1}, {0X0501, 16, 1}, {                                                                                                                \
-            0X0502, 16, 1                                                                                                                                      \
-        }                                                                                                                                                      \
+            {0X020C, 6, 1}, {0X020D, 4, 1}, {0X020E, 1, 1},  {0XF301, 112, 1}, {0X1024, 32, 0}, {0X6666, 24, 0}, {0X0120, 0, 1}, {0X0401, 9, 1}, {0X0402, 12, 1}, \
+            {0X0403, 12, 0}, {0X0404, 18, 0},  {0X0501, 16, 1}, {0X0502, 16, 1}                                                                                   \                                                                                                                       
+                                                                                                                                                               \
+                                                                                                                                                               \
     }
 
 /**********************************************************************
@@ -551,13 +564,8 @@ typedef union {
         ground_robot_position_t        groundRobotPosition;         // 0X020B 地面机器人位置
         radar_mark_data_t              radarMarkData;               // 0X020C 雷达标记进度数据
         sentry_info_t                  sentryInfo;                  // 0X020D 哨兵自主决策信息同步
-        radar_info_t                   radarInfo;                   // 0X020E	雷达自主决策信息同步
-        client_custom_graphic_delete_t clientCustomGraphicDelete;   // 0XF100 客户端删除图形
-        client_custom_graphic_single_t client_custom_graphicSingle; // 0XF101 客户端绘制一个图形
-        client_custom_graphic_double_t clientCustomGraphicDouble;   // 0XF102 客户端绘制两个图形
-        client_custom_graphic_five_t   clientCustomGraphicFive;     // 0XF103 客户端绘制五个图形
-        client_custom_character_t      clientCustomCharacter;       // 0XF110 客户端绘制字符
-        client_custom_graphic_seven_t  clientCustomGraphicSeven;    // 0XF104 客户端绘制七个图形
+        radar_info_t                   radarInfo;                   // 0X020E 雷达自主决策信息同步
+        robot_interactive_data_t       robotInteractiveData;          // 0XF301 学生机器人交互
         debug_info_t                   debugInfo;                   // 0X1024 调试信息
         error_info_t                   errorInfo;                   // 0X6666 报错信息
         heartbeat_t                    heartbeat;                   // 0X0120 心跳包
@@ -565,12 +573,11 @@ typedef union {
         chassis_data_t                 chassisData;                 // 0X0402 底盘控制
         gyroscope_data_t               gyroscopeData;               // 0X0403 陀螺仪数据
         dbus_data_t                    dbusData;                    // 0X0404 遥控器及键鼠数据
-        robot_interactive_data_t       robotCommunication;          // 0XF301 学生机器人间通信
         board_interactive_data_t       boardAlpha;                  // 0X0501 主控板间通信
         board_interactive_data_t       boardBeta;                   // 0X0502 主控板间通信
     };
     struct {
-        uint8_t data[655];
+        uint8_t data[745];
     };
 } ProtocolData_Type;
 

@@ -473,26 +473,21 @@ void Task_UI(void *Parameters) {
     int        intervalms    = interval * 1000;
     uint8_t    isInitialized = 0;
 
-    UI_7_Protocol_Updata(&interactionFigure_7_0, &ProtocolData.clientCustomGraphicSeven);
-    UI_Char_Protocol_Updata(&extClientCustomChar_0, &ProtocolData.clientCustomCharacter);
-
     while (1) {
 				if (keyboardData.Ctrl) {
-					  Bridge_Send_Protocol_Once(&Node_Judge, 0xF104);
-						delay_ms(200);
-						Bridge_Send_Protocol_Once(&Node_Judge, 0xF110);
+					    Bridge_Send_Protocol_Once(&Node_Judge, 0xF301);
 						delay_ms(200);
 				}
 				
         if (!isInitialized) {
-            UI_1_Protocol_Updata(&interactionFigure_1_0, &ProtocolData.client_custom_graphicSingle);
+            UI_1_Protocol_Updata(&interactionFigure_1_0, &ProtocolData.robotInteractiveData);
             interactionFigure_1_0.interaction_figure[0].operate_tpye = 2;
             isInitialized                                            = 1;
         } else {
             interactionFigure_1_0.interaction_figure[0].details_c = targetSpeed >> 22;
             interactionFigure_1_0.interaction_figure[0].details_d = (targetSpeed >> 11) & 0x7FF;
             interactionFigure_1_0.interaction_figure[0].details_d = targetSpeed & 0x3FF;
-            UI_1_Protocol_Updata(&interactionFigure_1_0, &ProtocolData.client_custom_graphicSingle);
+            UI_1_Protocol_Updata(&interactionFigure_1_0, &ProtocolData.robotInteractiveData);
         }
         vTaskDelayUntil(&LastWakeTime, intervalms);
     }

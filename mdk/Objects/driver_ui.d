@@ -1,7 +1,7 @@
 .\objects\driver_ui.o: ..\driver\src\Driver_UI.c
 .\objects\driver_ui.o: ..\driver\inc\Driver_UI.h
 .\objects\driver_ui.o: ..\user\protocol.h
-.\objects\driver_ui.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\driver_ui.o: D:\Keilv5\Keilv5_core\ARM\Compiler_5.06u7\Bin\..\include\stdint.h
 .\objects\driver_ui.o: ..\user\common\stm32f4xx.h
 .\objects\driver_ui.o: ..\core\core_cm4.h
 .\objects\driver_ui.o: ..\core\core_cmInstr.h
@@ -40,7 +40,7 @@
 .\objects\driver_ui.o: ..\library\std\inc\stm32f4xx_sai.h
 .\objects\driver_ui.o: ..\driver\inc\Driver_Protocol.h
 .\objects\driver_ui.o: ..\library\freertos\include\FreeRTOS.h
-.\objects\driver_ui.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\driver_ui.o: D:\Keilv5\Keilv5_core\ARM\Compiler_5.06u7\Bin\..\include\stddef.h
 .\objects\driver_ui.o: ..\library\freertos\include\FreeRTOSConfig.h
 .\objects\driver_ui.o: ..\library\freertos\include\projdefs.h
 .\objects\driver_ui.o: ..\library\freertos\include\portable.h
