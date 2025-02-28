@@ -3,6 +3,7 @@
 #include "config.h"
 #include "macro.h"
 #include "handle.h"
+#include "protocol.h"
 
 void Task_Control(void *Parameters) {
     TickType_t LastWakeTime = xTaskGetTickCount();
@@ -472,8 +473,7 @@ void Task_UI(void *Parameters) {
     float      interval      = 0.1;
     int        intervalms    = interval * 1000;
     uint8_t    isInitialized = 0;
-
-    client_custom_graphic_single_t clientCustomGraphicSingle;
+    
     while (1) {
 				if (keyboardData.Ctrl) {
 					    Bridge_Send_Protocol_Once(&Node_Judge, 0xF301);
@@ -481,14 +481,14 @@ void Task_UI(void *Parameters) {
 				}
 				
         if (!isInitialized) {
-            UI_1_Protocol_Updata(&clientCustomGraphicSingle, &ProtocolData.robotInteractiveData);
-            clientCustomGraphicSingle.grapic_data_struct[0].operate_tpye = 2;
-            isInitialized                                                = 1;
+            void UI_Protocol_Updata();
+            robotInteractiveData.clientCustomGraphicSingle.grapic_data_struct[0].operate_tpye = 2;
+            isInitialized                                                                     = 1;
         } else {
-            clientCustomGraphicSingle.grapic_data_struct[0].details_c = targetSpeed >> 22;
-            clientCustomGraphicSingle.grapic_data_struct[0].details_d = (targetSpeed >> 11) & 0x7FF;
-            clientCustomGraphicSingle.grapic_data_struct[0].details_d = targetSpeed & 0x3FF;
-            UI_1_Protocol_Updata(&clientCustomGraphicSingle, &ProtocolData.robotInteractiveData);
+            robotInteractiveData.clientCustomGraphicSingle.grapic_data_struct[0].details_c = targetSpeed >> 22;
+            robotInteractiveData.clientCustomGraphicSingle.grapic_data_struct[0].details_d = (targetSpeed >> 11) & 0x7FF;
+            robotInteractiveData.clientCustomGraphicSingle.grapic_data_struct[0].details_d = targetSpeed & 0x3FF;
+            void UI_Protocol_Updata();
         }
         vTaskDelayUntil(&LastWakeTime, intervalms);
     }

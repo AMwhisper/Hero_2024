@@ -2,51 +2,61 @@
 #include "handle.h"
 #include "protocol.h"
 
-void UI_1_Protocol_Updata(client_custom_graphic_single_t *clientCustomGraphicSingle, robot_interactive_data_t *robotInteractiveData) {
-    robotInteractiveData->data_cmd_id = 0xF301;
-    robotInteractiveData->send_id     = ProtocolData.gameRobotstatus.robot_id;
-    robotInteractiveData->receiver_id = 0x100 + ProtocolData.gameRobotstatus.robot_id;
+
+void UI_Protocol_Updata(void) {
+    robotInteractiveData.data_cmd_id = 0xF301;
+    robotInteractiveData.send_id     = ProtocolData.gameRobotstatus.robot_id;
+    robotInteractiveData.receiver_id = 0x100 + ProtocolData.gameRobotstatus.robot_id;
+
+    
+    Robot_Comm_Protocol_Update(&robotInteractiveData.robotComm);
+    UI_1_Protocol_Updata(&robotInteractiveData.clientCustomGraphicSingle);
+    UI_2_Protocol_Updata(&robotInteractiveData.clientCustomGraphicDouble);
+    UI_5_Protocol_Updata(&robotInteractiveData.clientCustomGraphicFive);
+    UI_7_Protocol_Updata(&robotInteractiveData.clientCustomGraphicSeven);
+    UI_Char_Protocol_Updata(&robotInteractiveData.clientCustomCharacter);
+    Sentry_Self_Cmd_Protocol_Update(&robotInteractiveData.sentrySelfCmd);
+    Radar_Self_Cmd_Protocol_Update(&robotInteractiveData.radarSelfCmd);
+}
+
+
+void Robot_Comm_Protocol_Update(robot_comm_t *robotComm) {
+    robotComm->sub_id = 0xF200;
+}
+
+void UI_Delete_Protocol_Update(client_custom_graphic_delete_t *clientCustomGraphicDelete) {
+    clientCustomGraphicDelete->sub_id = 0xF100;
+}
+
+void UI_1_Protocol_Updata(client_custom_graphic_single_t *clientCustomGraphicSingle) {
     clientCustomGraphicSingle->sub_id = 0xF101;
-    // for (int i = 6; i < sizeof(robotInteractiveData->data); i++) {
-    //     robotInteractiveData->data[i] = interactionFigure_1->data[i];
-    // }
 }
 
-void UI_2_Protocol_Updata(interaction_figure_2_t *interactionFigure_2, robot_interactive_data_t *robotInteractiveData) {
-    robotInteractiveData->data_cmd_id = 0xF301;
-    robotInteractiveData->send_id     = ProtocolData.gameRobotstatus.robot_id;
-    robotInteractiveData->receiver_id = 0x100 + ProtocolData.gameRobotstatus.robot_id;
-    for (int i = 6; i < sizeof(robotInteractiveData->data); i++) {
-        robotInteractiveData->data[i] = interactionFigure_2->data[i];
-    }
+void UI_2_Protocol_Updata(client_custom_graphic_double_t *clientCustomGraphicDouble) {
+    clientCustomGraphicDouble->sub_id = 0xF102;
 }
 
-void UI_5_Protocol_Updata(interaction_figure_5_t *interactionFigure_5, robot_interactive_data_t *robotInteractiveData) {
-    robotInteractiveData->data_cmd_id = 0xF301;
-    robotInteractiveData->send_id     = ProtocolData.gameRobotstatus.robot_id;
-    robotInteractiveData->receiver_id = 0x100 + ProtocolData.gameRobotstatus.robot_id;
-    for (int i = 6; i < sizeof(robotInteractiveData->data); i++) {
-        robotInteractiveData->data[i] = interactionFigure_5->data[i];
-    }
+void UI_5_Protocol_Updata(client_custom_graphic_five_t *clientCustomGraphicFive) {
+    clientCustomGraphicFive->sub_id = 0xF103;
 }
 
-void UI_7_Protocol_Updata(interaction_figure_7_t *interactionFigure_7, robot_interactive_data_t *robotInteractiveData) {
-    robotInteractiveData->data_cmd_id = 0xF301;
-    robotInteractiveData->send_id     = ProtocolData.gameRobotstatus.robot_id;
-    robotInteractiveData->receiver_id = 0x100 + ProtocolData.gameRobotstatus.robot_id;
-    for (int i = 6; i < sizeof(robotInteractiveData->data); i++) {
-        robotInteractiveData->data[i] = interactionFigure_7->data[i];
-    }
+void UI_7_Protocol_Updata(client_custom_graphic_seven_t *clientCustomGraphicSeven) {
+    clientCustomGraphicSeven->sub_id = 0xF104;
 }
 
-void UI_Char_Protocol_Updata(ext_client_custom_character_t *extClientCustomChar, robot_interactive_data_t *robotInteractiveData) {
-    robotInteractiveData->data_cmd_id = 0xF301;
-    robotInteractiveData->send_id     = ProtocolData.gameRobotstatus.robot_id;
-    robotInteractiveData->receiver_id = 0x100 + ProtocolData.gameRobotstatus.robot_id;
-    for (int i = 6; i < sizeof(robotInteractiveData->data); i++) {
-        robotInteractiveData->data[i] = extClientCustomChar->data[i];
-    }
+void UI_Char_Protocol_Updata(client_custom_character_t *clientCustomCharacter) {
+    clientCustomCharacter->sub_id = 0xF110;
 }
+
+void Sentry_Self_Cmd_Protocol_Update(sentry_self_cmd_t *sentrySelfCmd) {
+    sentrySelfCmd->sub_id = 0xF120;
+}
+
+void Radar_Self_Cmd_Protocol_Update(radar_self_cmd_t *radarSelfCmd) {
+    radarSelfCmd->sub_id = 0xF121;
+}
+
+
 
 /**
  * @brief 自定义图形并初始化， 具体数据采用生成器，
@@ -188,21 +198,21 @@ void UI_Init() {
     strcpy(ui____TargetSpeed.characater, "TagertSpeed:");
 
     // 打包
-    for (int i = 0; i < sizeof(interactionFigure_1_0.data); i++) {
-        interactionFigure_1_0.data[i] = ui____Value_TargetSpeed->data[i];
+    for (int i = 0; i < sizeof(robotInteractiveData.clientCustomGraphicSingle.data); i++) {
+        robotInteractiveData.clientCustomGraphicSingle.data[i] = ui____Value_TargetSpeed->data[i];
     }
 
     for (int i = 0; i < 15; i++) {
-        interactionFigure_7_0.data[i]          = ui____Line_1->data[i];
-        interactionFigure_7_0.data[i + 15]     = ui____Line_2->data[i];
-        interactionFigure_7_0.data[i + 15 * 2] = ui____Line_3->data[i];
-        interactionFigure_7_0.data[i + 15 * 3] = ui____Line_4->data[i];
-        interactionFigure_7_0.data[i + 15 * 4] = ui____Line_5->data[i];
-        interactionFigure_7_0.data[i + 15 * 5] = ui____Line_6->data[i];
-        interactionFigure_7_0.data[i + 15 * 6] = ui____Line_7->data[i];
+        robotInteractiveData.clientCustomGraphicSeven.data[i]          = ui____Line_1->data[i];
+        robotInteractiveData.clientCustomGraphicSeven.data[i + 15]     = ui____Line_2->data[i];
+        robotInteractiveData.clientCustomGraphicSeven.data[i + 15 * 2] = ui____Line_3->data[i];
+        robotInteractiveData.clientCustomGraphicSeven.data[i + 15 * 3] = ui____Line_4->data[i];
+        robotInteractiveData.clientCustomGraphicSeven.data[i + 15 * 4] = ui____Line_5->data[i];
+        robotInteractiveData.clientCustomGraphicSeven.data[i + 15 * 5] = ui____Line_6->data[i];
+        robotInteractiveData.clientCustomGraphicSeven.data[i + 15 * 6] = ui____Line_7->data[i];
     }
 
-    for (int i = 0; i < sizeof(extClientCustomChar_0.data); i++) {
-        extClientCustomChar_0.data[i] = ui____TargetSpeed.data[i];
+    for (int i = 0; i < sizeof(robotInteractiveData.clientCustomCharacter.data); i++) {
+        robotInteractiveData.clientCustomCharacter.data[i] = ui____TargetSpeed.data[i];
     }
 }

@@ -5,6 +5,7 @@
 #include "stm32f4xx.h"
 #include "Driver_Protocol.h"
 #include "config.h"
+#include "handle.h"
 
 #define CAT(x, y) x##y
 
@@ -263,15 +264,20 @@ typedef union {
     };
 } UI_characater_t;
 
+extern robot_interactive_data_t robotInteractiveData;
+
 /**
  * @brief functions
  */
 void UI_Init();
-void UI_1_Protocol_Updata(client_custom_graphic_single_t *clientCustomGraphicSingle, robot_interactive_data_t *robotInteractiveData);
-// void UI_1_Protocol_Updata(interaction_figure_1_t *interactionFigure_1, robot_interactive_data_t *robotInteractiveData);
-void UI_2_Protocol_Updata(interaction_figure_2_t *interactionFigure_2, robot_interactive_data_t *robotInteractiveData);
-void UI_5_Protocol_Updata(interaction_figure_5_t *interactionFigure_5, robot_interactive_data_t *robotInteractiveData);
-void UI_7_Protocol_Updata(interaction_figure_7_t *interactionFigure_7, robot_interactive_data_t *robotInteractiveData);
-void UI_Char_Protocol_Updata(ext_client_custom_character_t *extClientCustomChar, robot_interactive_data_t *robotInteractiveData);
+void UI_Protocol_Updata(void);
+void Robot_Comm_Protocol_Update(robot_comm_t *robotComm);
+void UI_1_Protocol_Updata(client_custom_graphic_single_t *clientCustomGraphicSingle);
+void UI_2_Protocol_Updata(client_custom_graphic_double_t *clientCustomGraphicDouble);
+void UI_5_Protocol_Updata(client_custom_graphic_five_t *clientCustomGraphicFive);
+void UI_7_Protocol_Updata(client_custom_graphic_seven_t *clientCustomGraphicSeven);
+void UI_Char_Protocol_Updata(client_custom_character_t *clientCustomCharacter);
+void Sentry_Self_Cmd_Protocol_Update(sentry_self_cmd_t *sentrySelfCmd);
+void Radar_Self_Cmd_Protocol_Update(radar_self_cmd_t *radarSelfCmd);
 
 #endif

@@ -84,3 +84,5 @@
 .\objects\tasks_1.o: ..\driver\inc\Driver_UI.h
 .\objects\tasks_1.o: ..\user\infantry\config.h
 .\objects\tasks_1.o: ..\user\common\default_config.h
+.\objects\tasks_1.o: ..\user\infantry\handle.h
+.\objects\tasks_1.o: ..\user\infantry\protocol.h

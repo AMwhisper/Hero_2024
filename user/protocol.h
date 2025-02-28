@@ -420,9 +420,9 @@ typedef union {
         client_custom_graphic_delete_t clientCustomGraphicDelete;   
         client_custom_graphic_single_t clientCustomGraphicSingle; 
         client_custom_graphic_double_t clientCustomGraphicDouble;  
-        client_custom_graphic_five_t   clientCustomGraphicFive;     
+        client_custom_graphic_five_t   clientCustomGraphicFive; 
+        client_custom_graphic_seven_t  clientCustomGraphicSeven;    
         client_custom_character_t      clientCustomCharacter;       
-        client_custom_graphic_seven_t  clientCustomGraphicSeven;
         sentry_self_cmd_t              sentrySelfCmd;
         radar_self_cmd_t               radarSelfCmd;
     };
@@ -552,11 +552,11 @@ typedef union {
 
 typedef union {
     struct {
-        game_status_t   gameStatus;               // 0X0001 比赛状态数据
-        game_result_t   gameResult;               // 0X0002 比赛结果的数据
-        game_robot_HP_t healthPoint;              // 0X0003 机器人血量数据
-                                                  //        dart_status_t                  dartStatus;                  // 0X0004 飞镖发射状态
-        event_data_t                   eventData; // 0X0101 场地事件数据
+        game_status_t                  gameStatus;                  // 0X0001 比赛状态数据
+        game_result_t                  gameResult;                  // 0X0002 比赛结果的数据
+        game_robot_HP_t                healthPoint;                 // 0X0003 机器人血量数据
+        // dart_status_t                  dartStatus;                  // 0X0004 飞镖发射状态
+        event_data_t                   eventData;                   // 0X0101 场地事件数据
         supply_projectile_action_t     supplyProjectileaction;      // 0X0102 补给站动作标识
         referee_warning_t              refereeWarning;              // 0X0104 裁判警告信息
         dart_remaining_time_t          dartRemainingtime;           // 0X0105 飞镖发射口倒计
@@ -574,7 +574,7 @@ typedef union {
         radar_mark_data_t              radarMarkData;               // 0X020C 雷达标记进度数据
         sentry_info_t                  sentryInfo;                  // 0X020D 哨兵自主决策信息同步
         radar_info_t                   radarInfo;                   // 0X020E 雷达自主决策信息同步
-        robot_interactive_data_t       robotInteractiveData;          // 0XF301 学生机器人交互
+        robot_interactive_data_t       robotInteractiveData;        // 0XF301 学生机器人交互
         debug_info_t                   debugInfo;                   // 0X1024 调试信息
         error_info_t                   errorInfo;                   // 0X6666 报错信息
         heartbeat_t                    heartbeat;                   // 0X0120 心跳包

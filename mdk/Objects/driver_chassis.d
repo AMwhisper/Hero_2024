@@ -83,4 +83,5 @@
 .\objects\driver_chassis.o: ..\driver\inc\Driver_UI.h
 .\objects\driver_chassis.o: ..\user\infantry\config.h
 .\objects\driver_chassis.o: ..\user\common\default_config.h
+.\objects\driver_chassis.o: ..\user\infantry\handle.h
 .\objects\driver_chassis.o: G:\Keil5\core\ARM\ARMCC\Bin\..\include\math.h

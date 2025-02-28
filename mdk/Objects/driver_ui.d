@@ -80,3 +80,4 @@
 .\objects\driver_ui.o: ..\user\common\default_config.h
 .\objects\driver_ui.o: ..\driver\inc\Driver_Magic.h
 .\objects\driver_ui.o: ..\driver\inc\Driver_Fsm.h
+.\objects\driver_ui.o: ..\driver\inc\Driver_UI.h
