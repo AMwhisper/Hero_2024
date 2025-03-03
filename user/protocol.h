@@ -326,7 +326,7 @@ typedef union {
         uint8_t robot_comm;
     };
     struct {
-        uint8_t data[112];
+        uint8_t data[2];
     };
 } robot_comm_t;
 
@@ -407,7 +407,7 @@ typedef union {
         uint8_t radar_self_cmd;
     };
     struct {
-        uint8_t data[1];
+        uint8_t data[2];
     };
 } radar_self_cmd_t;
 
@@ -417,19 +417,60 @@ typedef union {
         uint16_t send_id;
         uint16_t receiver_id;
         robot_comm_t                   robotComm;
-        client_custom_graphic_delete_t clientCustomGraphicDelete;   
+    };
+    struct {
+        uint16_t data_cmd_id;
+        uint16_t send_id;
+        uint16_t receiver_id;
+        client_custom_graphic_delete_t clientCustomGraphicDelete;
+    };
+    struct {
+        uint16_t data_cmd_id;
+        uint16_t send_id;
+        uint16_t receiver_id;   
         client_custom_graphic_single_t clientCustomGraphicSingle; 
-        client_custom_graphic_double_t clientCustomGraphicDouble;  
+    };
+    struct {
+        uint16_t data_cmd_id;
+        uint16_t send_id;
+        uint16_t receiver_id;    
+        client_custom_graphic_double_t clientCustomGraphicDouble;
+    };  
+    struct {
+        uint16_t data_cmd_id;
+        uint16_t send_id;
+        uint16_t receiver_id;
         client_custom_graphic_five_t   clientCustomGraphicFive; 
-        client_custom_graphic_seven_t  clientCustomGraphicSeven;    
-        client_custom_character_t      clientCustomCharacter;       
+    };
+    struct {
+        uint16_t data_cmd_id;
+        uint16_t send_id;
+        uint16_t receiver_id;
+        client_custom_graphic_seven_t  clientCustomGraphicSeven; 
+    };  
+    struct {
+        uint16_t data_cmd_id;
+        uint16_t send_id;
+        uint16_t receiver_id; 
+        client_custom_character_t      clientCustomCharacter;  
+    };
+    struct {
+        uint16_t data_cmd_id;
+        uint16_t send_id;
+        uint16_t receiver_id;     
         sentry_self_cmd_t              sentrySelfCmd;
+    };
+    struct {
+        uint16_t data_cmd_id;
+        uint16_t send_id;
+        uint16_t receiver_id;
         radar_self_cmd_t               radarSelfCmd;
     };
     struct {
         uint8_t data[112];
     };
 } robot_interactive_data_t;
+
 
 typedef union {
     struct {
