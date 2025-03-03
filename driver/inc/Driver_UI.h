@@ -264,14 +264,13 @@ typedef union {
     };
 } UI_characater_t;
 
-extern robot_interactive_data_t robotInteractiveData;
-
 /**
  * @brief functions
  */
 void UI_Init();
-void UI_Protocol_Updata(void);
+void UI_Protocol_Updata(void *parameters);
 void Robot_Comm_Protocol_Update(robot_comm_t *robotComm);
+void UI_Delete_Protocol_Update(client_custom_graphic_delete_t *clientCustomGraphicDelete);
 void UI_1_Protocol_Updata(client_custom_graphic_single_t *clientCustomGraphicSingle);
 void UI_2_Protocol_Updata(client_custom_graphic_double_t *clientCustomGraphicDouble);
 void UI_5_Protocol_Updata(client_custom_graphic_five_t *clientCustomGraphicFive);

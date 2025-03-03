@@ -482,12 +482,12 @@ void Task_UI(void *Parameters) {
 				
         if (!isInitialized) {
             void UI_Protocol_Updata();
-            robotInteractiveData.clientCustomGraphicSingle.grapic_data_struct[0].operate_tpye = 2;
-            isInitialized                                                                     = 1;
+            ProtocolData.robotInteractiveData.clientCustomGraphicSingle.grapic_data_struct[0].operate_tpye = 2;
+            isInitialized                                                                    							 = 1;
         } else {
-            robotInteractiveData.clientCustomGraphicSingle.grapic_data_struct[0].details_c = targetSpeed >> 22;
-            robotInteractiveData.clientCustomGraphicSingle.grapic_data_struct[0].details_d = (targetSpeed >> 11) & 0x7FF;
-            robotInteractiveData.clientCustomGraphicSingle.grapic_data_struct[0].details_d = targetSpeed & 0x3FF;
+            ProtocolData.robotInteractiveData.clientCustomGraphicSingle.grapic_data_struct[0].details_c = targetSpeed >> 22;
+            ProtocolData.robotInteractiveData.clientCustomGraphicSingle.grapic_data_struct[0].details_d = (targetSpeed >> 11) & 0x7FF;
+            ProtocolData.robotInteractiveData.clientCustomGraphicSingle.grapic_data_struct[0].details_d = targetSpeed & 0x3FF;
             void UI_Protocol_Updata();
         }
         vTaskDelayUntil(&LastWakeTime, intervalms);

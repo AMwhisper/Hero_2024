@@ -93,8 +93,8 @@ __HANDLE_EXT PWM_Type PWM_Test;
 // CAN
 __HANDLE_EXT Bridge_Type BridgeData;
 
-// robot communication and UI
-__HANDLE_EXT robot_interactive_data_t robotInteractiveData;
+//// robot communication and UI
+//__HANDLE_EXT robot_interactive_data_t robotInteractiveData;
 
 // UI调用量
 __HANDLE_EXT uint32_t targetSpeed;
