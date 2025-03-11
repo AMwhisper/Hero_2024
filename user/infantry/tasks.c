@@ -606,8 +606,19 @@ void Task_Fire_Stir(void *Parameters) {
             //            PID_Calculate(&PID_FireR, targetSpeed, Motor_FR.speed);
             //					  Motor_FL.input = PID_FireL.output;
             //            Motor_FR.input = PID_FireR.output;
+        }  else if (keyboardData.Q) {
+            // 单发
+            static float target_angle = 0;  
+            if (target_angle == 0) {  
+                target_angle = Motor_Stir.angle + 60.0f;
+            }
+            PID_Calculate(&PID_StirAngle, target_angle, Motor_Stir.angle);
+            Motor_Stir.input = PID_StirAngle.output;
+            if ((target_angle - Motor_Stir.angle) < 0.5 && (target_angle - Motor_Stir.angle) > -0.5) {
+                shootMode == shootIdle;
+                target_angle = 0;  // 复位目标角度，使下次按 Q 时可以重新触发旋转
+            }
         }
-
         // DebugData.debug1 = PID_StirSpeed.output;
         // DebugData.debug2 = shootMode;
 
