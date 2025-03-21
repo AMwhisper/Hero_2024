@@ -3,21 +3,21 @@
 #include "protocol.h"
 
 
-void UI_Protocol_Updata(void *Parameters) {
-    ProtocolData.robotInteractiveData.data_cmd_id = 0xF301;
-    ProtocolData.robotInteractiveData.send_id     = ProtocolData.gameRobotstatus.robot_id;
-    ProtocolData.robotInteractiveData.receiver_id = 0x100 + ProtocolData.gameRobotstatus.robot_id;
+void UI_Protocol_Update(robot_interactive_data_t *robotInteractiveData) {
+		robotInteractiveData->data_cmd_id = 0xF301;
+    robotInteractiveData->sender_id     = ProtocolData.gameRobotstatus.robot_id;
+    robotInteractiveData->receiver_id = 0x100 + ProtocolData.gameRobotstatus.robot_id;
 
     
-    Robot_Comm_Protocol_Update(&ProtocolData.robotInteractiveData.robotComm);
-		UI_Delete_Protocol_Update(&ProtocolData.robotInteractiveData.clientCustomGraphicDelete);
-    UI_1_Protocol_Updata(&ProtocolData.robotInteractiveData.clientCustomGraphicSingle);
-    UI_2_Protocol_Updata(&ProtocolData.robotInteractiveData.clientCustomGraphicDouble);
-    UI_5_Protocol_Updata(&ProtocolData.robotInteractiveData.clientCustomGraphicFive);
-    UI_7_Protocol_Updata(&ProtocolData.robotInteractiveData.clientCustomGraphicSeven);
-    UI_Char_Protocol_Updata(&ProtocolData.robotInteractiveData.clientCustomCharacter);
-    Sentry_Self_Cmd_Protocol_Update(&ProtocolData.robotInteractiveData.sentrySelfCmd);
-    Radar_Self_Cmd_Protocol_Update(&ProtocolData.robotInteractiveData.radarSelfCmd);
+    Robot_Comm_Protocol_Update(&robotInteractiveData->payload.robotComm);
+		UI_Delete_Protocol_Update(&robotInteractiveData->payload.clientCustomGraphicDelete);
+    UI_1_Protocol_Updata(&robotInteractiveData->payload.clientCustomGraphicSingle);
+    UI_2_Protocol_Updata(&robotInteractiveData->payload.clientCustomGraphicDouble);
+    UI_5_Protocol_Updata(&robotInteractiveData->payload.clientCustomGraphicFive);
+    UI_7_Protocol_Updata(&robotInteractiveData->payload.clientCustomGraphicSeven);
+    UI_Char_Protocol_Updata(&robotInteractiveData->payload.clientCustomCharacter);
+    Sentry_Self_Cmd_Protocol_Update(&robotInteractiveData->payload.sentrySelfCmd);
+    Radar_Self_Cmd_Protocol_Update(&robotInteractiveData->payload.radarSelfCmd);
 }
 
 
@@ -199,21 +199,21 @@ void UI_Init() {
     strcpy(ui____TargetSpeed.characater, "TagertSpeed:");
 
     // 打包
-    for (int i = 0; i < sizeof(ProtocolData.robotInteractiveData.clientCustomGraphicSingle.data); i++) {
-        ProtocolData.robotInteractiveData.clientCustomGraphicSingle.data[i] = ui____Value_TargetSpeed->data[i];
+    for (int i = 0; i < sizeof(ProtocolData.robotInteractiveData.payload.clientCustomGraphicSingle.data); i++) {
+        ProtocolData.robotInteractiveData.payload.clientCustomGraphicSingle.data[i] = ui____Value_TargetSpeed->data[i];
     }
 
     for (int i = 0; i < 15; i++) {
-        ProtocolData.robotInteractiveData.clientCustomGraphicSeven.data[i]          = ui____Line_1->data[i];
-        ProtocolData.robotInteractiveData.clientCustomGraphicSeven.data[i + 15]     = ui____Line_2->data[i];
-        ProtocolData.robotInteractiveData.clientCustomGraphicSeven.data[i + 15 * 2] = ui____Line_3->data[i];
-        ProtocolData.robotInteractiveData.clientCustomGraphicSeven.data[i + 15 * 3] = ui____Line_4->data[i];
-        ProtocolData.robotInteractiveData.clientCustomGraphicSeven.data[i + 15 * 4] = ui____Line_5->data[i];
-        ProtocolData.robotInteractiveData.clientCustomGraphicSeven.data[i + 15 * 5] = ui____Line_6->data[i];
-        ProtocolData.robotInteractiveData.clientCustomGraphicSeven.data[i + 15 * 6] = ui____Line_7->data[i];
+        ProtocolData.robotInteractiveData.payload.clientCustomGraphicSeven.data[i]          = ui____Line_1->data[i];
+        ProtocolData.robotInteractiveData.payload.clientCustomGraphicSeven.data[i + 15]     = ui____Line_2->data[i];
+        ProtocolData.robotInteractiveData.payload.clientCustomGraphicSeven.data[i + 15 * 2] = ui____Line_3->data[i];
+        ProtocolData.robotInteractiveData.payload.clientCustomGraphicSeven.data[i + 15 * 3] = ui____Line_4->data[i];
+        ProtocolData.robotInteractiveData.payload.clientCustomGraphicSeven.data[i + 15 * 4] = ui____Line_5->data[i];
+        ProtocolData.robotInteractiveData.payload.clientCustomGraphicSeven.data[i + 15 * 5] = ui____Line_6->data[i];
+        ProtocolData.robotInteractiveData.payload.clientCustomGraphicSeven.data[i + 15 * 6] = ui____Line_7->data[i];
     }
 
-    for (int i = 0; i < sizeof(ProtocolData.robotInteractiveData.clientCustomCharacter.data); i++) {
-        ProtocolData.robotInteractiveData.clientCustomCharacter.data[i] = ui____TargetSpeed.data[i];
+    for (int i = 0; i < sizeof(ProtocolData.robotInteractiveData.payload.clientCustomCharacter.data); i++) {
+        ProtocolData.robotInteractiveData.payload.clientCustomCharacter.data[i] = ui____TargetSpeed.data[i];
     }
 }

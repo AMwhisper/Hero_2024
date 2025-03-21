@@ -48,7 +48,7 @@
 .\objects\driver_magic.o: ..\library\freertos\include\mpu_wrappers.h
 .\objects\driver_magic.o: ..\library\freertos\include\task.h
 .\objects\driver_magic.o: ..\library\freertos\include\list.h
-.\objects\driver_magic.o: ..\user\protocol.h
+.\objects\driver_magic.o: ..\user\infantry\protocol.h
 .\objects\driver_magic.o: ..\user\infantry\config.h
 .\objects\driver_magic.o: ..\user\common\default_config.h
 .\objects\driver_magic.o: ..\driver\inc\Driver_Bridge.h

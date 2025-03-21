@@ -19,7 +19,8 @@ void Task_Control(void *Parameters) {
             //            MagzineOpened = LEFT_SWITCH_MIDDLE && RIGHT_SWITCH_TOP;
             FrictEnabled      = 0;
             StirEnabled       = LEFT_SWITCH_BOTTOM && RIGHT_SWITCH_TOP;
-            StirReloadEnabled = LEFT_SWITCH_MIDDLE && RIGHT_SWITCH_MIDDLE;
+            StirSingleShoot   = LEFT_SWITCH_BOTTOM && RIGHT_SWITCH_MIDDLE;
+            StirReloadEnabled = LEFT_SWITCH_MIDDLE && RIGHT_SWITCH_MIDDLE;       
             // unused
             // FastShootMode = StirEnabled;
             // PsShootEnabled = 0;
@@ -30,6 +31,7 @@ void Task_Control(void *Parameters) {
             PsShootEnabled    = 0;
             StirEnabled       = mouseData.pressLeft;
             PsAimEnabled      = mouseData.pressRight;
+            StirSingleShoot   = keyboardData.Q;
             StirReloadEnabled = keyboardData.R;
             // 摩擦轮
             if (keyboardData.Z) {
@@ -360,7 +362,7 @@ void Task_Chassis(void *Parameters) {
             }
         }
         // 底盘跟随云台
-        vw = ABS(PID_Follow_Angle.error) < followDeadRegion ? 0 : (PID_Follow_Speed.output * DPS2RPS); // gensui -1*PID
+        // vw = ABS(PID_Follow_Angle.error) < followDeadRegion ? 0 : (PID_Follow_Speed.output * DPS2RPS); // gensui -1*PID
 
         // Host control
         vx += HostChassisData.vx;
@@ -387,7 +389,7 @@ void Task_Chassis(void *Parameters) {
 
         // 麦轮解算及限速
         // targetPower = 70.0 - WANG(30 - ChassisData.powerBuffer, 0.0, 10.0) / 10.0 * 70.0; // 设置目标功率
-        targetPower = ProtocolData.gameRobotstatus.chassis_power_limit * (1 - WANG(60.0 - ChassisData.powerBuffer, 0.0, 40.0) / 40.0); // 设置目标功率 ?
+        // targetPower = ProtocolData.gameRobotstatus.chassis_power_limit * (1 - WANG(60.0 - ChassisData.powerBuffer, 0.0, 40.0) / 40.0); // 设置目标功率 ?
 
         Chassis_Update(&ChassisData, vx, vy, vwRamp); // 更新麦轮转速
         Chassis_Fix(&ChassisData, motorAngle);        // 修正旋转后底盘的前进方向
@@ -473,27 +475,27 @@ void Task_UI(void *Parameters) {
     float      interval      = 0.1;
     int        intervalms    = interval * 1000;
     uint8_t    isInitialized = 0;
-    
+
     while (1) {
-				if (keyboardData.Ctrl) {
-					    Bridge_Send_Protocol_Once(&Node_Judge, 0xF301);
-						delay_ms(200);
-				}
-				
+        if (keyboardData.Ctrl) {
+            Bridge_Send_Protocol_Once(&Node_Judge, 0xF301);
+            delay_ms(200);
+        }
+
         if (!isInitialized) {
-            void UI_Protocol_Updata();
-            ProtocolData.robotInteractiveData.clientCustomGraphicSingle.grapic_data_struct[0].operate_tpye = 2;
-            isInitialized                                                                    							 = 1;
+            UI_Protocol_Update(&ProtocolData.robotInteractiveData);  // 调用并传入robotInteractiveData
+            ProtocolData.robotInteractiveData.payload.clientCustomGraphicSingle.grapic_data_struct[0].operate_tpye = 2;
+            isInitialized = 1;
         } else {
-            ProtocolData.robotInteractiveData.clientCustomGraphicSingle.grapic_data_struct[0].details_c = targetSpeed >> 22;
-            ProtocolData.robotInteractiveData.clientCustomGraphicSingle.grapic_data_struct[0].details_d = (targetSpeed >> 11) & 0x7FF;
-            ProtocolData.robotInteractiveData.clientCustomGraphicSingle.grapic_data_struct[0].details_d = targetSpeed & 0x3FF;
-            void UI_Protocol_Updata();
+            ProtocolData.robotInteractiveData.payload.clientCustomGraphicSingle.grapic_data_struct[0].details_c = targetSpeed >> 22;
+            ProtocolData.robotInteractiveData.payload.clientCustomGraphicSingle.grapic_data_struct[0].details_d = (targetSpeed >> 11) & 0x7FF;
+            ProtocolData.robotInteractiveData.payload.clientCustomGraphicSingle.grapic_data_struct[0].details_e = targetSpeed & 0x3FF;  // 修正为details_e
         }
         vTaskDelayUntil(&LastWakeTime, intervalms);
     }
     vTaskDelete(NULL);
 }
+
 
 /**
  * @brief 发射机构 (拨弹轮)
@@ -505,7 +507,7 @@ void Task_Fire_Stir(void *Parameters) {
     int        intervalms   = interval * 1000;     // 任务运行间隔 ms
 
     // 射击模式
-    enum shootMode_e { shootIdle = 0, shootToDeath = 1, shootReload = 2, emergencyStop = -1 }; // 停止, 连发
+    enum shootMode_e { shootIdle = 0, shootToDeath = 1, shootReload = 2, shootSingle = 3, emergencyStop = -1 }; // 停止, 连发
     enum shootMode_e shootMode = shootIdle;
 
     // 热量控制
@@ -557,7 +559,7 @@ void Task_Fire_Stir(void *Parameters) {
         }
 
         // 热量控制
-        maxShootHeat = (float) (ProtocolData.gameRobotstatus.shooter_barrel_heat_limit - ProtocolData.powerHeatData.shooter_id1_42mm_cooling_heat);
+         maxShootHeat = (float) (ProtocolData.gameRobotstatus.shooter_barrel_heat_limit - ProtocolData.powerHeatData.shooter_id1_42mm_cooling_heat);
 
         // 输入射击模式
         shootMode = shootIdle;
@@ -565,6 +567,8 @@ void Task_Fire_Stir(void *Parameters) {
             shootMode = shootReload;
         } else if (StirEnabled) {
             shootMode = shootToDeath;
+        } else if (StirSingleShoot) {
+            shootMode = shootSingle;
         }
         // 视觉辅助
         // if (PsShootEnabled && lastSeq != Ps.autoaimData.seq && Ps.autoaimData.biu_biu_state) {
@@ -606,7 +610,7 @@ void Task_Fire_Stir(void *Parameters) {
             //            PID_Calculate(&PID_FireR, targetSpeed, Motor_FR.speed);
             //					  Motor_FL.input = PID_FireL.output;
             //            Motor_FR.input = PID_FireR.output;
-        }  else if (keyboardData.Q) {
+        }  else if (shootMode == shootSingle) {
             // 单发
             static float target_angle = 0;  
             if (target_angle == 0) {  

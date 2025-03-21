@@ -72,7 +72,7 @@
 .\objects\tasks_1.o: ..\library\mpu6500\mpu6500_i2c.h
 .\objects\tasks_1.o: ..\driver\inc\Driver_Gyroscope.h
 .\objects\tasks_1.o: ..\driver\inc\Driver_Protocol.h
-.\objects\tasks_1.o: ..\user\protocol.h
+.\objects\tasks_1.o: ..\user\infantry\protocol.h
 .\objects\tasks_1.o: ..\user\infantry\config.h
 .\objects\tasks_1.o: ..\user\common\default_config.h
 .\objects\tasks_1.o: ..\driver\inc\Driver_Bridge.h
@@ -85,4 +85,3 @@
 .\objects\tasks_1.o: ..\user\infantry\config.h
 .\objects\tasks_1.o: ..\user\common\default_config.h
 .\objects\tasks_1.o: ..\user\infantry\handle.h
-.\objects\tasks_1.o: ..\user\infantry\protocol.h

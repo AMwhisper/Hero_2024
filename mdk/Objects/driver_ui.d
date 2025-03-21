@@ -1,6 +1,6 @@
 .\objects\driver_ui.o: ..\driver\src\Driver_UI.c
 .\objects\driver_ui.o: ..\driver\inc\Driver_UI.h
-.\objects\driver_ui.o: ..\user\protocol.h
+.\objects\driver_ui.o: ..\user\infantry\protocol.h
 .\objects\driver_ui.o: G:\Keil5\core\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\driver_ui.o: ..\user\common\stm32f4xx.h
 .\objects\driver_ui.o: ..\core\core_cm4.h

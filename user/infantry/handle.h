@@ -41,7 +41,7 @@ __HANDLE_EXT volatile uint32_t ulHighFrequencyTimerTicks;
 
 // 功能开关
 __HANDLE_EXT uint8_t ControlMode;
-__HANDLE_EXT uint8_t FrictEnabled, StirEnabled, StirReloadEnabled, MagzineOpened, FastShootMode;
+__HANDLE_EXT uint8_t FrictEnabled, StirEnabled, StirReloadEnabled, MagzineOpened, FastShootMode, StirSingleShoot;
 __HANDLE_EXT uint8_t PsAimEnabled, PsShootEnabled;
 __HANDLE_EXT uint8_t SwingMode, SafetyMode, PigeonMode, FastmoveMode;
 
@@ -93,8 +93,8 @@ __HANDLE_EXT PWM_Type PWM_Test;
 // CAN
 __HANDLE_EXT Bridge_Type BridgeData;
 
-//// robot communication and UI
-//__HANDLE_EXT robot_interactive_data_t robotInteractiveData;
+// robot communication and UI
+//__HANDLE_EXT robot_interactive_data_t robotInteractive;
 
 // UI调用量
 __HANDLE_EXT uint32_t targetSpeed;

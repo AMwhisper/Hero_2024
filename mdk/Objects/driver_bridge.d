@@ -49,7 +49,7 @@
 .\objects\driver_bridge.o: ..\library\freertos\include\mpu_wrappers.h
 .\objects\driver_bridge.o: ..\library\freertos\include\task.h
 .\objects\driver_bridge.o: ..\library\freertos\include\list.h
-.\objects\driver_bridge.o: ..\user\protocol.h
+.\objects\driver_bridge.o: ..\user\infantry\protocol.h
 .\objects\driver_bridge.o: ..\user\infantry\config.h
 .\objects\driver_bridge.o: ..\user\common\default_config.h
 .\objects\driver_bridge.o: ..\driver\inc\Driver_CAN.h

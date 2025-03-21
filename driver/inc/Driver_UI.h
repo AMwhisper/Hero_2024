@@ -268,7 +268,8 @@ typedef union {
  * @brief functions
  */
 void UI_Init();
-void UI_Protocol_Updata(void *parameters);
+//void UI_Protocol_Update(void *parameters);
+void UI_Protocol_Update(robot_interactive_data_t *robotInteractiveData);
 void Robot_Comm_Protocol_Update(robot_comm_t *robotComm);
 void UI_Delete_Protocol_Update(client_custom_graphic_delete_t *clientCustomGraphicDelete);
 void UI_1_Protocol_Updata(client_custom_graphic_single_t *clientCustomGraphicSingle);

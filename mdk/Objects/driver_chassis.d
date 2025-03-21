@@ -71,7 +71,7 @@
 .\objects\driver_chassis.o: ..\library\mpu6500\mpu6500_i2c.h
 .\objects\driver_chassis.o: ..\driver\inc\Driver_Gyroscope.h
 .\objects\driver_chassis.o: ..\driver\inc\Driver_Protocol.h
-.\objects\driver_chassis.o: ..\user\protocol.h
+.\objects\driver_chassis.o: ..\user\infantry\protocol.h
 .\objects\driver_chassis.o: ..\user\infantry\config.h
 .\objects\driver_chassis.o: ..\user\common\default_config.h
 .\objects\driver_chassis.o: ..\driver\inc\Driver_Bridge.h

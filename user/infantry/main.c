@@ -74,16 +74,16 @@ int main(void) {
 
     // 总线设置
     Bridge_Bind(&BridgeData, CAN1_BRIDGE, 0x201, &Motor_LAJI);
-    Bridge_Bind(&BridgeData, CAN1_BRIDGE, 0x204, &Motor_LF);
-    Bridge_Bind(&BridgeData, CAN1_BRIDGE, 0x207, &Motor_LB);
-    Bridge_Bind(&BridgeData, CAN1_BRIDGE, 0x202, &Motor_RB);
-    Bridge_Bind(&BridgeData, CAN1_BRIDGE, 0x203, &Motor_RF);
-    Bridge_Bind(&BridgeData, CAN1_BRIDGE, 0x209, &Motor_Yaw);
-    Bridge_Bind(&BridgeData, CAN1_BRIDGE, 0x206, &Motor_Stir);
-    Bridge_Bind(&BridgeData, CAN2_BRIDGE, 0x203, &Motor_FL);
-    Bridge_Bind(&BridgeData, CAN2_BRIDGE, 0x204, &Motor_FR);
-    Bridge_Bind(&BridgeData, CAN2_BRIDGE, 0x207, &Motor_Pitch);
-    Bridge_Bind(&BridgeData, CAN2_BRIDGE, 0x206, &Motor_Pitch2);
+    Bridge_Bind(&BridgeData, CAN1_BRIDGE, 0x202, &Motor_LF);
+    Bridge_Bind(&BridgeData, CAN1_BRIDGE, 0x203, &Motor_LB);
+    Bridge_Bind(&BridgeData, CAN1_BRIDGE, 0x204, &Motor_RB);
+    Bridge_Bind(&BridgeData, CAN1_BRIDGE, 0x205, &Motor_RF);
+    Bridge_Bind(&BridgeData, CAN1_BRIDGE, 0x206, &Motor_Yaw);
+    Bridge_Bind(&BridgeData, CAN1_BRIDGE, 0x207, &Motor_Stir);
+    Bridge_Bind(&BridgeData, CAN2_BRIDGE, 0x202, &Motor_FL);
+    Bridge_Bind(&BridgeData, CAN2_BRIDGE, 0x203, &Motor_FR);
+    Bridge_Bind(&BridgeData, CAN2_BRIDGE, 0x204, &Motor_Pitch);
+    Bridge_Bind(&BridgeData, CAN2_BRIDGE, 0x205, &Motor_Pitch2);
     // 总线设置
     Bridge_Bind(&BridgeData, USART_BRIDGE, 7, &Node_Host);
     Bridge_Bind(&BridgeData, USART_BRIDGE, 8, &Node_Judge);
@@ -118,7 +118,7 @@ int main(void) {
     Bridge_Send_Protocol(&Node_Host, 0x120, 1);    // 心跳包 no need
     Bridge_Send_Protocol(&Node_Host, 0x403, 20);   // 陀螺仪
     Bridge_Send_Protocol(&Node_Host, 0x404, 10);   // 遥控器
-    Bridge_Send_Protocol(&Node_Judge, 0X301, 10); // 此处创建UI循环发送任务
+    Bridge_Send_Protocol(&Node_Judge, 0xF301, 10); // 此处创建UI循环发送任务
 
     // 创建UI更新打包任务
     xTaskCreate(Task_UI, "Task_UI", 500, NULL, 6, NULL);

@@ -68,7 +68,7 @@
 .\objects\interrupt.o: ..\library\mpu6500\mpu6500_i2c.h
 .\objects\interrupt.o: ..\driver\inc\Driver_Gyroscope.h
 .\objects\interrupt.o: ..\driver\inc\Driver_Protocol.h
-.\objects\interrupt.o: ..\user\protocol.h
+.\objects\interrupt.o: ..\user\infantry\protocol.h
 .\objects\interrupt.o: ..\user\infantry\config.h
 .\objects\interrupt.o: ..\user\common\default_config.h
 .\objects\interrupt.o: ..\driver\inc\Driver_Bridge.h
