@@ -392,7 +392,7 @@ void Task_Chassis(void *Parameters) {
         // targetPower = ProtocolData.gameRobotstatus.chassis_power_limit * (1 - WANG(60.0 - ChassisData.powerBuffer, 0.0, 40.0) / 40.0); // 设置目标功率 ?
 
         Chassis_Update(&ChassisData, vx, vy, vwRamp); // 更新麦轮转速
-        Chassis_Fix(&ChassisData, motorAngle);        // 修正旋转后底盘的前进方向
+        // Chassis_Fix(&ChassisData, motorAngle);        // 修正旋转后底盘的前进方向
         Chassis_Calculate_Rotor_Speed(&ChassisData);  // 麦轮解算
 
         // Chassis_Limit_Rotor_Speed(&ChassisData, 800);                                 // 设置转子速度上限 (rad/s)
@@ -477,10 +477,10 @@ void Task_UI(void *Parameters) {
     uint8_t    isInitialized = 0;
 
     while (1) {
-        if (keyboardData.Ctrl) {
-            Bridge_Send_Protocol_Once(&Node_Judge, 0xF301);
-            delay_ms(200);
-        }
+        
+        // Bridge_Send_Protocol_Once(&Node_Judge, 0xF301);
+        // delay_ms(200);
+        
 
         if (!isInitialized) {
             UI_Protocol_Update(&ProtocolData.robotInteractiveData);  // 调用并传入robotInteractiveData
@@ -489,7 +489,7 @@ void Task_UI(void *Parameters) {
         } else {
             ProtocolData.robotInteractiveData.payload.clientCustomGraphicSingle.grapic_data_struct[0].details_c = targetSpeed >> 22;
             ProtocolData.robotInteractiveData.payload.clientCustomGraphicSingle.grapic_data_struct[0].details_d = (targetSpeed >> 11) & 0x7FF;
-            ProtocolData.robotInteractiveData.payload.clientCustomGraphicSingle.grapic_data_struct[0].details_e = targetSpeed & 0x3FF;  // 修正为details_e
+            ProtocolData.robotInteractiveData.payload.clientCustomGraphicSingle.grapic_data_struct[0].details_e = targetSpeed & 0x3FF;  
         }
         vTaskDelayUntil(&LastWakeTime, intervalms);
     }
@@ -559,7 +559,7 @@ void Task_Fire_Stir(void *Parameters) {
         }
 
         // 热量控制
-         maxShootHeat = (float) (ProtocolData.gameRobotstatus.shooter_barrel_heat_limit - ProtocolData.powerHeatData.shooter_id1_42mm_cooling_heat);
+        //  maxShootHeat = (float) (ProtocolData.gameRobotstatus.shooter_barrel_heat_limit - ProtocolData.powerHeatData.shooter_id1_42mm_cooling_heat);
 
         // 输入射击模式
         shootMode = shootIdle;
@@ -575,16 +575,16 @@ void Task_Fire_Stir(void *Parameters) {
         //     shootMode = shootToDeath;
         // }
         // lastSeq = Ps.autoaimData.seq;
-				if(!FastShootMode) {
-        if (maxShootHeat < 100 && StirEnabled) {
-            PID_Calculate(&PID_StirSpeed, 50, Motor_Stir.speed * RPM2RPS);
-            Motor_Stir.input = PID_StirSpeed.output;
-            shootMode        = emergencyStop;
-            if (Motor_Stir.lastPosition == Motor_Stir.position) {
-                shootMode = shootIdle;
-            }
-        }
-			}
+		// 		if(!FastShootMode) {
+        // if (maxShootHeat < 100 && StirEnabled) {
+        //     PID_Calculate(&PID_StirSpeed, 50, Motor_Stir.speed * RPM2RPS);
+        //     Motor_Stir.input = PID_StirSpeed.output;
+        //     shootMode        = emergencyStop;
+        //     if (Motor_Stir.lastPosition == Motor_Stir.position) {
+        //         shootMode = shootIdle;
+        //     }
+        // }
+		// 	}
         // 控制拨弹轮
         if (shootMode == shootIdle) {
             // 停止

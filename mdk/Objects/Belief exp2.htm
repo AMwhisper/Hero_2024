@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\Belief exp2.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\Belief exp2.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sat Mar 22 00:12:16 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sun Mar 23 01:42:21 2025
 <BR><P>
 <H3>Maximum Stack Usage =        456 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1187,8 +1187,7 @@ Global Symbols
 <LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Can_Send_Msg
 <LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Protocol_Pack
 </UL>
-<BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_UI
-<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Send_Protocol
+<BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_Send_Protocol
 </UL>
 
 <P><STRONG><a name="[c]"></a>BusFault_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, interrupt.o(i.BusFault_Handler))
@@ -2091,7 +2090,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
 </UL>
-<P><STRONG><a name="[75]"></a>Task_Fire_Stir</STRONG> (Thumb, 706 bytes, Stack size 32 bytes, tasks_1.o(i.Task_Fire_Stir))
+<P><STRONG><a name="[75]"></a>Task_Fire_Stir</STRONG> (Thumb, 682 bytes, Stack size 32 bytes, tasks_1.o(i.Task_Fire_Stir))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = Task_Fire_Stir &rArr; vTaskDelayUntil &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetTickCount
@@ -2146,13 +2145,11 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> driver_bridge.o(i.Bridge_Send_Protocol)
 </UL>
-<P><STRONG><a name="[78]"></a>Task_UI</STRONG> (Thumb, 178 bytes, Stack size 16 bytes, tasks_1.o(i.Task_UI))
-<BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = Task_UI &rArr; Bridge_Send_Protocol_Once &rArr; Can_Send_Msg &rArr; Can_Send &rArr; CAN_TransmitStatus
+<P><STRONG><a name="[78]"></a>Task_UI</STRONG> (Thumb, 152 bytes, Stack size 16 bytes, tasks_1.o(i.Task_UI))
+<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = Task_UI &rArr; vTaskDelayUntil &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetTickCount
+<BR>[Calls]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetTickCount
 <LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelayUntil
-<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Bridge_Send_Protocol_Once
 <LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UI_Protocol_Update
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
@@ -2483,7 +2480,6 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6500_Initialize
 <LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6500_Init
 <LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MPU6500_EnableInt
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task_UI
 </UL>
 
 <P><STRONG><a name="[16d]"></a>delay_us</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, delay.o(i.delay_us))
@@ -2508,7 +2504,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MadgwickAHRSupdateIMU
 </UL>
 
-<P><STRONG><a name="[8d]"></a>main</STRONG> (Thumb, 776 bytes, Stack size 16 bytes, main.o(i.main))
+<P><STRONG><a name="[8d]"></a>main</STRONG> (Thumb, 766 bytes, Stack size 16 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 260 + Unknown Stack Size
 <LI>Call Chain = main &rArr; BSP_DBUS_Init &rArr; BSP_USART_Init &rArr; USART_Init &rArr; RCC_GetClocksFreq
 </UL>

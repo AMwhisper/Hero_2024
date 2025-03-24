@@ -76,7 +76,7 @@ int main(void) {
     Bridge_Bind(&BridgeData, CAN1_BRIDGE, 0x201, &Motor_LAJI);
     Bridge_Bind(&BridgeData, CAN1_BRIDGE, 0x202, &Motor_LF);
     Bridge_Bind(&BridgeData, CAN1_BRIDGE, 0x203, &Motor_LB);
-    Bridge_Bind(&BridgeData, CAN1_BRIDGE, 0x204, &Motor_RB);
+    Bridge_Bind(&BridgeData, CAN1_BRIDGE, 0x204, &Motor_RB);    
     Bridge_Bind(&BridgeData, CAN1_BRIDGE, 0x205, &Motor_RF);
     Bridge_Bind(&BridgeData, CAN1_BRIDGE, 0x206, &Motor_Yaw);
     Bridge_Bind(&BridgeData, CAN1_BRIDGE, 0x207, &Motor_Stir);
@@ -96,8 +96,8 @@ int main(void) {
      *******************************************************************************/
 
     // 等待遥控器开启
-    while (!remoteData.state) {
-    }
+    // while (!remoteData.state) {
+    // }
     xTaskCreate(Task_Blink, "Task_Blink", 400, NULL, 3, NULL);
     // 模式切换任务
     xTaskCreate(Task_Control, "Task_Control", 400, NULL, 9, NULL);
@@ -118,7 +118,7 @@ int main(void) {
     Bridge_Send_Protocol(&Node_Host, 0x120, 1);    // 心跳包 no need
     Bridge_Send_Protocol(&Node_Host, 0x403, 20);   // 陀螺仪
     Bridge_Send_Protocol(&Node_Host, 0x404, 10);   // 遥控器
-    Bridge_Send_Protocol(&Node_Judge, 0xF301, 10); // 此处创建UI循环发送任务
+    Bridge_Send_Protocol(&Node_Judge, 0xF301, 1); // 此处创建UI循环发送任务
 
     // 创建UI更新打包任务
     xTaskCreate(Task_UI, "Task_UI", 500, NULL, 6, NULL);

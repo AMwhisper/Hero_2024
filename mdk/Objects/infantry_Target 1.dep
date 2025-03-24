@@ -1513,7 +1513,7 @@ I (..\driver\inc\Driver_CAN.h)(0x67BF0BCC)
 I (..\driver\inc\Driver_BSP.h)(0x67BF0BCC)
 I (..\library\atom\debug\beep.h)(0x67BF0BCC)
 I (..\library\atom\sys\sys.h)(0x67BF0BCC)
-F (..\driver\src\Driver_UI.c)(0x67DD8A45)(--c99 -c --cpu Cortex-M4.fp.sp -g -W -O0 --apcs=interwork --split_sections -I ..\core -I ..\bsp\inc -I ..\driver\inc -I ..\library\std\inc -I ..\library\freertos\include -I ..\library\freertos\portable\RVDS\ARM_CM4F -I ..\user\common -I ..\library\atom\delay -I ..\library\atom\sys -I ..\library\atom\usart -I ..\library\atom\debug -I ..\library\mpu6500 -I ..\library\vegmath -I ..\user\common -I ..\user\infantry --gnu-IG:\Keil5\pack\Keil\STM32F4xx_DFP\3.0.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER -DROBOT_LOOP_ONE-o .\objects\driver_ui.o --omf_browse .\objects\driver_ui.crf --depend .\objects\driver_ui.d)
+F (..\driver\src\Driver_UI.c)(0x67DEF679)(--c99 -c --cpu Cortex-M4.fp.sp -g -W -O0 --apcs=interwork --split_sections -I ..\core -I ..\bsp\inc -I ..\driver\inc -I ..\library\std\inc -I ..\library\freertos\include -I ..\library\freertos\portable\RVDS\ARM_CM4F -I ..\user\common -I ..\library\atom\delay -I ..\library\atom\sys -I ..\library\atom\usart -I ..\library\atom\debug -I ..\library\mpu6500 -I ..\library\vegmath -I ..\user\common -I ..\user\infantry --gnu-IG:\Keil5\pack\Keil\STM32F4xx_DFP\3.0.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER -DROBOT_LOOP_ONE-o .\objects\driver_ui.o --omf_browse .\objects\driver_ui.crf --depend .\objects\driver_ui.d)
 I (..\driver\inc\Driver_UI.h)(0x67DD8A5E)
 I (..\user\infantry\protocol.h)(0x67DD8B1C)
 I (G:\Keil5\core\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
@@ -1700,7 +1700,7 @@ I (..\driver\inc\Driver_Bridge.h)(0x67BF0BCC)
 I (..\driver\inc\Driver_Magic.h)(0x67BF0BCC)
 I (..\driver\inc\Driver_Fsm.h)(0x67BF0BCC)
 I (..\driver\inc\Driver_UI.h)(0x67DD8A5E)
-F (..\user\infantry\main.c)(0x67DD5737)(--c99 -c --cpu Cortex-M4.fp.sp -g -W -O0 --apcs=interwork --split_sections -I ..\core -I ..\bsp\inc -I ..\driver\inc -I ..\library\std\inc -I ..\library\freertos\include -I ..\library\freertos\portable\RVDS\ARM_CM4F -I ..\user\common -I ..\library\atom\delay -I ..\library\atom\sys -I ..\library\atom\usart -I ..\library\atom\debug -I ..\library\mpu6500 -I ..\library\vegmath -I ..\user\common -I ..\user\infantry --gnu-IG:\Keil5\pack\Keil\STM32F4xx_DFP\3.0.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER -DROBOT_LOOP_ONE-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (..\user\infantry\main.c)(0x67DEF1BC)(--c99 -c --cpu Cortex-M4.fp.sp -g -W -O0 --apcs=interwork --split_sections -I ..\core -I ..\bsp\inc -I ..\driver\inc -I ..\library\std\inc -I ..\library\freertos\include -I ..\library\freertos\portable\RVDS\ARM_CM4F -I ..\user\common -I ..\library\atom\delay -I ..\library\atom\sys -I ..\library\atom\usart -I ..\library\atom\debug -I ..\library\mpu6500 -I ..\library\vegmath -I ..\user\common -I ..\user\infantry --gnu-IG:\Keil5\pack\Keil\STM32F4xx_DFP\3.0.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER -DROBOT_LOOP_ONE-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (..\user\infantry\config.h)(0x67BF0BCC)
 I (..\user\common\default_config.h)(0x67BF0BCC)
 I (..\user\common\macro.h)(0x67BF0BCC)
@@ -1776,7 +1776,7 @@ I (..\driver\inc\Driver_Magic.h)(0x67BF0BCC)
 I (..\driver\inc\Driver_Fsm.h)(0x67BF0BCC)
 I (..\driver\inc\Driver_UI.h)(0x67DD8A5E)
 I (..\user\infantry\tasks.h)(0x67BF0BCC)
-F (..\user\infantry\tasks.c)(0x67DD8FDC)(--c99 -c --cpu Cortex-M4.fp.sp -g -W -O0 --apcs=interwork --split_sections -I ..\core -I ..\bsp\inc -I ..\driver\inc -I ..\library\std\inc -I ..\library\freertos\include -I ..\library\freertos\portable\RVDS\ARM_CM4F -I ..\user\common -I ..\library\atom\delay -I ..\library\atom\sys -I ..\library\atom\usart -I ..\library\atom\debug -I ..\library\mpu6500 -I ..\library\vegmath -I ..\user\common -I ..\user\infantry --gnu-IG:\Keil5\pack\Keil\STM32F4xx_DFP\3.0.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER -DROBOT_LOOP_ONE-o .\objects\tasks_1.o --omf_browse .\objects\tasks_1.crf --depend .\objects\tasks_1.d)
+F (..\user\infantry\tasks.c)(0x67DEF308)(--c99 -c --cpu Cortex-M4.fp.sp -g -W -O0 --apcs=interwork --split_sections -I ..\core -I ..\bsp\inc -I ..\driver\inc -I ..\library\std\inc -I ..\library\freertos\include -I ..\library\freertos\portable\RVDS\ARM_CM4F -I ..\user\common -I ..\library\atom\delay -I ..\library\atom\sys -I ..\library\atom\usart -I ..\library\atom\debug -I ..\library\mpu6500 -I ..\library\vegmath -I ..\user\common -I ..\user\infantry --gnu-IG:\Keil5\pack\Keil\STM32F4xx_DFP\3.0.0\Device\Include-D__UVISION_VERSION="539" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER -DROBOT_LOOP_ONE-o .\objects\tasks_1.o --omf_browse .\objects\tasks_1.crf --depend .\objects\tasks_1.d)
 I (..\user\infantry\tasks.h)(0x67BF0BCC)
 I (..\user\infantry\config.h)(0x67BF0BCC)
 I (..\user\common\default_config.h)(0x67BF0BCC)
